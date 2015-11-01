@@ -8,7 +8,7 @@
 void setup()
 {
 	// I2C Slave address, read from EEPROM
-	byte	slaveAddress = 1;
+	unsigned char	slaveAddress = 1;
 
 	Serial.begin(9600);
 
@@ -34,5 +34,38 @@ void loop()
 void receiveEvent(int howMany)
 {
 
+}
+
+#define CMD_REDRAW			0x81
+#define CMD_TURN_ON			0x82
+#define CMD_TURN_OFF		0x83
+
+void ProcessCommand(unsigned char command)
+{
+	switch (command)
+	{
+	case CMD_REDRAW:
+		break;
+
+	case CMD_TURN_ON:
+		break;
+
+	case CMD_TURN_OFF:
+		break;
+	}
+}
+
+void SetPixel(unsigned char pos, unsigned char r, unsigned char g, unsigned b)
+{
+
+}
+
+void Redraw()
+{
+	// Switch display buffer
+	Colorduino.FlipPage();
+
+	// Copy display buffer to memory buffer
+	Colorduino.CopyDisplayMem();
 }
 
